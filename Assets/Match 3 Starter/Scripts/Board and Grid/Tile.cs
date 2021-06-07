@@ -102,6 +102,7 @@ public class Tile : MonoBehaviour
         render2.sprite = render.sprite; // 4
         render.sprite = tempSprite; // 5
         SFXManager.instance.PlaySFX(Clip.Swap); // 6
+        GUIManager.instance.MoveCounter--;
 
     }
 
