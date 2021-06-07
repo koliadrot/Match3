@@ -61,6 +61,11 @@ public class GUIManager : MonoBehaviour
         set
         {
             moveCounter = value;
+            if (moveCounter <= 0)
+            {
+                moveCounter = 0;
+                StartCoroutine(WaitForShifting());
+            }
             moveCounterTxt.text = moveCounter.ToString();
         }
     }
@@ -90,6 +95,13 @@ public class GUIManager : MonoBehaviour
         }
 
         yourScoreTxt.text = score.ToString();
+    }
+
+    private IEnumerator WaitForShifting()
+    {
+        yield return new WaitUntil(() => !BoardManager.instance.IsShifting);
+        yield return new WaitForSeconds(.25f);
+        GameOver();
     }
 
 }
