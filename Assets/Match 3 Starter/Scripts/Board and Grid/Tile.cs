@@ -102,6 +102,7 @@ public class Tile : MonoBehaviour
         render2.sprite = render.sprite; // 4
         render.sprite = tempSprite; // 5
         SFXManager.instance.PlaySFX(Clip.Swap); // 6
+
     }
 
     private GameObject GetAdjacent(Vector2 castDir)
@@ -164,6 +165,8 @@ public class Tile : MonoBehaviour
         {
             render.sprite = null;
             matchFound = false;
+            StopCoroutine(BoardManager.instance.FindNullTiles());
+            StartCoroutine(BoardManager.instance.FindNullTiles());
             SFXManager.instance.PlaySFX(Clip.Clear);
         }
     }
