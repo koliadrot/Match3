@@ -23,17 +23,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class GUIManager : MonoBehaviour
 {
     public static GUIManager instance;
 
     public GameObject gameOverPanel;
-    public Text yourScoreTxt;
-    public Text highScoreTxt;
+    public TextMeshProUGUI yourScoreTxt;
+    public TextMeshProUGUI highScoreTxt;
 
-    public Text scoreTxt;
-    public Text moveCounterTxt;
+    public TextMeshProUGUI scoreTxt;
+    public TextMeshProUGUI moveCounterTxt;
 
     private int score;
     private int moveCounter;
